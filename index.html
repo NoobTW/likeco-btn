@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>likeco-btn：在任何頁面插入讚賞按鈕</title>
+</head>
+<body>
+	<header>
+		<h1>likeco-btn</h1>
+		<p>在任何頁面插入「讚賞」按鈕</p>
+	</header>
+	<div class="wrapper">
+		<p>只要有讀者點一下「Like」按鈕，就能以實際行動支持原創作者。官方的 LikeCoin 按鈕僅支援 Medium 平臺及 WordPress 外掛；但現在您也可以用 <strong>likeco-btn</strong> 在任何頁面上插入讚賞按鈕。</p>
+		<h2>步驟</h2>
+		<ol>
+			<li>透過下方的程式碼配置器，填寫您的「Liker ID」。</li>
+			<li>(選填) 透過下方的程式碼配置器，填寫您的網頁網址。</li>
+			<li>複製該程式碼片段，並貼至目標網站的 HTML。</li>
+			<li>分享此頁面，一同開始賺取 LikeCoin！</li>
+		</ol>
+		<h2>程式碼配置器</h2>
+		<label for="name">* Liker ID</label>
+		<input type="text" name="name" id="name" placeholder="填入您的 LikeCoin 帳號，如 noobtw7">
+		<label for="url">(選填) 按 Like 的頁面網址</label>
+		<input type="text" name="url" id="url" placeholder="填入網頁網址，如 https://noob.tw。留空則代表載入時的當前頁面。">
+		<label id="advanced">進階配置 ▸</label>
+		<div class="advanced">
+			<input type="checkbox" id="noPromote" checked> <small>顯示推廣 likeco-btn 的連結</small>
+			<label for="allowedQueryString">允許顯示在網址中的參數</label>
+			<input type="text" name="allowedQueryString" id="allowedQueryString" value="p">
+			<p><small>有些固定網址包含 query 參數，如 WordPress 預設 permalink 即包含 <code>?p=xx</code> 的參數。我們預設只保留 <code>p</code> 參數，若您需要保留更多參數，請在此設定（以半形逗號分隔）。</small></p>
+		</div>
+		<div class="button" id="generate">產生程式碼</div>
+
+		<div class="dialog">
+			<div class="dialog-body">
+				<b>步驟 1：將此段程式碼放在 <code>&lt;/body&gt;</code> 結束之前</b>
+				<button id="copy1" class="button copy-button" data-clipboard-action="copy" data-clipboard-target="#code1">複製</button>
+				<div class="clear"></div>
+				<pre><code id="code1">&lt;script src="https://noobtw.github.io/likeco-btn/likeco-btn.js"&gt;&lt;/script&gt;</code></pre>
+
+				<b>步驟 2：將此段程式碼放在想要插入 likeco-btn 的地方</b>
+				<button id="copy2" class="button copy-button" data-clipboard-action="copy" data-clipboard-target="#code2">複製</button>
+				<div class="clear"></div>
+				<pre><code id="code2">&lt;div class="likeco-btn" data-name="noobtw7" data-url="&lt;?php the_permalink(); ?&gt;"&gt;&lt;/div&gt;</code></pre>
+			</div>
+		</div>
+
+		<div class="likeco-btn" data-name="NoobTW7"></div>
+
+		<h2>常見問題</h2>
+		<b>LikeCoin 是什麼？</b>
+		<p>詳細請參考 <a target="_blank" href="https://like.co/">LikeCoin 官方網站</a>。</p>
+		<b>Liker ID 在哪裡索取？</b>
+		<p>首先您需要註冊 LikeCoin 帳號。若您已註冊成功，可以在 <a target="_blank">like.co/in</a> 的個人頁面找到您的 Liker ID</p>
+		<b>likeco-btn 和 LikeCoin 是什麼關係？我的讚賞會被抽成嗎？</b>
+		<p>我們和 LikeCoin 官方沒有任何關係。由於 LikeCoin 官方遲遲未推出可以放置在任何頁面的 LikeCoin 讚賞按鈕，因此我們製作了一個便於配置按鈕的小工具。<strong>使用 likeco-btn 完全免費</strong>，但您也可以考慮 <a href="https://like.co/noobtw7/100"><strong>捐獻 LikeCoin</strong></a>。</p>
+		<b>產生的 likeco-btn 程式碼要放在哪裡？</b>
+		<p>步驟 1 的程式碼請貼在 <code>&lt;/body&gt;</code> 結束之前的位置；步驟 2 的程式碼請貼在你想要讚賞按鈕的地方，通常在文章的底部。例如如果你使用 WordPress 的話，可能會貼在 single.php；如果你使用 Ghost 的話，可能會貼在 post.hbs。</p>
+		<b>遇上什麼問題，或是有什麼建議嗎？</b>
+		<p>歡迎到 <a href="https://github.com/noobtw/likeco-btn/issues">GitHub Issues</a> 提議。</p>
+	</div>
+	<footer>(C) 2019 NoobTW, likeco-btn.</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+	<script src="js/all.js"></script>
+	<script src="likeco-btn.js"></script>
+</body>
+</html>
