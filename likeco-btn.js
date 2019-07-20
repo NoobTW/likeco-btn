@@ -53,5 +53,39 @@
 		} else {
 			DOM.outerHTML = str + promoteLink;
 		}
+
+		var LIKES = document.querySelectorAll('.likeco-btn-likes');
+		var LIKERS = document.querySelectorAll('.likeco-btn-likers');
+
+		if (LIKES.length) {
+			Array.from(LIKES).forEach(function(LIKE) {
+				var likeName = LIKE.dataset.name || name;
+				var likeURL = LIKE.dataset.url || URL;
+
+				var req = new XMLHttpRequest();
+				req.addEventListener('load', function() {
+					var res = JSON.parse(this.responseText);
+					LIKE.style.display = 'inline';
+					LIKE.innerText = res.total;
+				});
+				req.open('GET', 'https://like.co/api/like/likebutton/' + likeName + '/total?referrer=' + encodeURIComponent(likeURL));
+				req.send();
+			});
+		}
+		if (LIKERS.length) {
+			Array.from(LIKERS).forEach(function(LIKER) {
+				var likerName = LIKER.dataset.name || name;
+				var likerURL = LIKER.dataset.url || URL;
+
+				var req = new XMLHttpRequest();
+				req.addEventListener('load', function() {
+					var res = JSON.parse(this.responseText);
+					LIKER.style.display = 'inline';
+					LIKER.innerText = res.totalLiker;
+				});
+				req.open('GET', 'https://like.co/api/like/likebutton/' + likerName + '/total?referrer=' + encodeURIComponent(likerURL));
+				req.send();
+			});
+		}
 	}
 })();

@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>likeco-btn：在任何頁面插入讚賞按鈕</title>
@@ -48,14 +49,23 @@
 				<button id="copy2" class="button copy-button" data-clipboard-action="copy" data-clipboard-target="#code2">複製</button>
 				<div class="clear"></div>
 				<pre><code id="code2">&lt;div class="likeco-btn" data-name="noobtw7" data-url="&lt;?php the_permalink(); ?&gt;"&gt;&lt;/div&gt;</code></pre>
+
+				<b>選用：你也可以用這兩行程式碼分別代表按讚的人和按讚的數量</b>
+				<button id="copy3" class="button copy-button" data-clipboard-action="copy" data-clipboard-target="#code3">複製</button>
+				<div class="clear"></div>
+				<pre id="code3"><code>&lt;div class="likeco-btn-likers"&gt;&lt;/div&gt;</code>
+<code>&lt;div class="likeco-btn-likes"&gt;&lt;/div&gt;</code></pre>
 			</div>
 		</div>
 
+		<blockquote>
+			<div><div class="badge animated infinite tada">New！</div>總共有 <div class="likeco-btn-likers"></div> 個人按了 <div class="likeco-btn-likes"></div> 個讚</div>
+		</blockquote>
 		<div class="likeco-btn" data-name="NoobTW7"></div>
 
 		<h2>常見問題</h2>
 		<b>LikeCoin 是什麼？</b>
-		<p>詳細請參考 <a target="_blank" href="https://like.co/">LikeCoin 官方網站</a>。</p>
+		<p>詳細請參考 <a target="_blank" href="https://like.co/">LikeCoin 官方網站</a>，或閱讀 <a href="https://noob.tw/likeco-btn/">likeco-btn：在任何頁面插入讚賞按鈕</a>。</p>
 		<b>Liker ID 在哪裡索取？</b>
 		<p>首先您需要註冊 LikeCoin 帳號。若您已註冊成功，可以在 <a target="_blank">like.co/in</a> 的個人頁面找到您的 Liker ID</p>
 		<b>likeco-btn 和 LikeCoin 是什麼關係？我的讚賞會被抽成嗎？</b>
