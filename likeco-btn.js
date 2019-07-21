@@ -68,7 +68,7 @@
 					LIKE.style.display = 'inline';
 					LIKE.innerText = res.total;
 				});
-				req.open('GET', 'https://like.co/api/like/likebutton/' + likeName + '/total?referrer=' + encodeURIComponent(likeURL));
+				req.open('GET', 'https://like.co/api/like/likebutton/' + likeName.toLowerCase() + '/total?referrer=' + encodeURIComponent(likeURL));
 				req.send();
 			});
 		}
@@ -83,7 +83,7 @@
 					LIKER.style.display = 'inline';
 					LIKER.innerText = res.totalLiker;
 				});
-				req.open('GET', 'https://like.co/api/like/likebutton/' + likerName + '/total?referrer=' + encodeURIComponent(likerURL));
+				req.open('GET', 'https://like.co/api/like/likebutton/' + likerName.toLowerCase() + '/total?referrer=' + encodeURIComponent(likerURL));
 				req.send();
 			});
 		}
